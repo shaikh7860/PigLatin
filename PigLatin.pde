@@ -4,7 +4,7 @@ public void setup()
   System.out.println("there are " + lines.length + " lines");
   for (int i = 0; i < lines.length; i++) 
   {
-    //System.out.println(lines[i]);  
+
     System.out.println(pigLatin(lines[i]));
   }
 }
@@ -13,7 +13,7 @@ public void draw()
   //not used
 }
 public int findFirstVowel(String sWord) {
-  for (int i =0; i < sWord.length(); i++)
+  for (int i =0; i < sWord.length()-1; i++)
   {
     // if(word.substring(i, i+1).equals("a")){
     char letter = sWord.charAt(i);
@@ -34,12 +34,9 @@ public String pigLatin(String sWord)
   } else if (findFirstVowel(sWord) == 0)
   {
 
-    return sWord + "way";
-  }
-  else if(sWord.charAt('q')==0 && sWord.charAt('u')==1){
-    return
-    
-  }
-  else
-    return "Error!";
+    return sWord + "ay";
+  } else if (sWord.charAt(0)=='q' && sWord.charAt(1)=='u') {
+    return sWord.substring(2)+ sWord.substring(0, 2) + "ay";
+  } else
+    return sWord.substring(findFirstVowel(sWord)) +sWord.substring(0, findFirstVowel(sWord)) + "ay";
 }
